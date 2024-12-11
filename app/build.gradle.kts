@@ -1,16 +1,18 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
 }
 
 android {
     namespace = "com.heaven.templateproject"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.heaven.templateproject"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -75,8 +77,8 @@ dependencies {
     // di
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.hilt.android)
-    implementation(libs.hilt.android.compiler)
-    implementation(libs.hilt.compiler)
+    kapt(libs.hilt.android.compiler)
+    kapt(libs.hilt.compiler)
 
     // graphics
     implementation(libs.coil.compose)
